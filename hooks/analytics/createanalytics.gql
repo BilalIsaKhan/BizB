@@ -1,0 +1,3 @@
+mutation createAnalytics($input: AnalyticsInput!) {
+  createAnalytics(input: $input)
+}

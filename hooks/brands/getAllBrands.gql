@@ -1,0 +1,17 @@
+query getAllBrands(
+  $first: ConnectionLimitInt
+  $offset: Int
+  $searchQuery: String
+) {
+  getAllBrands(first: $first, offset: $offset, searchQuery: $searchQuery) {
+    totalCount
+       nodes{
+      _id
+      slug
+      heroMediaUrl
+      displayTitle
+      name
+    }
+  }
+
+}

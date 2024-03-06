@@ -1,0 +1,17 @@
+query getTags($shopId: ID!, $filter: String) {
+  tags(shopId: $shopId, filter: $filter) {
+    nodes {
+      _id
+      displayTitle
+      slug
+      heroMediaUrl
+      name
+      metafields {
+        key
+        value
+        __typename
+      }
+      __typename
+    }
+  }
+}

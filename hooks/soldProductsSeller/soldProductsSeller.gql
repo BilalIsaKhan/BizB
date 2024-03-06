@@ -1,0 +1,8 @@
+query sellerSoldProducts(
+  
+  $userId: String
+) {
+  sellerSoldProducts(userId: $userId) {
+   totalSoldProductCount
+  }
+}

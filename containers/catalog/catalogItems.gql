@@ -1,0 +1,118 @@
+query catalogItemsQuery(
+  $shopId: ID!
+  $tagIds: [ID]
+  $first: ConnectionLimitInt
+  $last: ConnectionLimitInt
+  $before: ConnectionCursor
+  $after: ConnectionCursor
+  $offset: Int
+  $sortBy: CatalogItemSortByField
+  $sortByPriceCurrencyCode: String
+  $sortOrder: SortOrder
+  $searchQuery: String
+  $simpleFilters: [simpleCatalogFilter]
+  $priceRange: [priceRangeValue]
+) {
+  catalogItems(
+    shopIds: [$shopId]
+    tagIds: $tagIds
+    first: $first
+    last: $last
+    before: $before
+    offset: $offset
+    after: $after
+    sortBy: $sortBy
+    sortByPriceCurrencyCode: $sortByPriceCurrencyCode
+    sortOrder: $sortOrder
+    searchQuery: $searchQuery
+    simpleFilters: $simpleFilters
+    priceRange: $priceRange
+  ) {
+    totalCount
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
+      hasPreviousPage
+      __typename
+    }
+    edges {
+      cursor
+      node {
+        _id
+        ... on CatalogItemProduct {
+          product {
+            _id
+            title
+            slug
+            vendor
+            tags {
+              nodes {
+                name
+                displayTitle
+              }
+            }
+            productId
+
+            variants {
+              uploadedBy {
+                userId
+                name
+                storeName
+              }
+              pricing {
+                compareAtPrice {
+                  displayAmount
+                  __typename
+                }
+
+               
+                displayPrice
+                __typename
+              }
+              media {
+                URLs {
+                  small
+                  large
+                  medium
+                  thumbnail
+                }
+              }
+              _id
+              variantId
+              optionTitle
+              options {
+                _id
+                __typename
+              }
+              __typename
+            }
+            isSoldOut
+            tagIds
+           
+          
+
+            media {
+              URLs {
+                large
+                thumbnail
+                small
+                medium
+                large
+                original
+                __typename
+              }
+              __typename
+            }
+           
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

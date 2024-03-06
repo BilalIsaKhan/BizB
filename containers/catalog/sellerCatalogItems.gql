@@ -1,0 +1,129 @@
+query sellercatalogItemsQuery(
+  $sellerIds: [ID]!
+  $first: ConnectionLimitInt
+  $last: ConnectionLimitInt
+  $before: ConnectionCursor
+  $after: ConnectionCursor
+) {
+  sellerCatalogItems(
+    sellerIds: $sellerIds
+    first: $first
+    last: $last
+    before: $before
+    after: $after
+  ) {
+    totalCount
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
+      hasPreviousPage
+      __typename
+    }
+    edges {
+      cursor
+      node {
+        _id
+        ... on CatalogItemProduct {
+          product {
+            _id
+            title
+            slug
+            description
+            vendor
+            tags {
+              nodes {
+                name
+              }
+            }
+            productId
+
+            variants {
+                 media {
+              URLs {
+                large
+                medium
+                thumbnail
+                small
+                __typename
+              }
+              __typename
+            }
+              uploadedBy {
+                userId
+                name
+                storeName
+              }
+              pricing {
+                compareAtPrice {
+                  displayAmount
+                  __typename
+                }
+
+                currency {
+                  code
+                  __typename
+                }
+                displayPrice
+                __typename
+              }
+              _id
+              variantId
+              optionTitle
+              options {
+                _id
+                __typename
+              }
+              __typename
+            }
+            isLowQuantity
+            isSoldOut
+            isBackorder
+            tagIds
+            metafields {
+              description
+              key
+              namespace
+              scope
+              value
+              valueType
+              __typename
+            }
+            shop {
+              currency {
+                code
+                __typename
+              }
+              __typename
+            }
+            media {
+              URLs {
+                large
+                medium
+                thumbnail
+                small
+                __typename
+              }
+              __typename
+            }
+            primaryImage {
+              URLs {
+                thumbnail
+                small
+                medium
+                large
+                __typename
+              }
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

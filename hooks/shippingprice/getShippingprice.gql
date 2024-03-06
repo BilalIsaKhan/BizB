@@ -1,0 +1,12 @@
+query GetShippingByAddress($address: String!, $city: String!, $amount: Int!) {
+  getOrderShippingByAddress(
+    input: { address: $address, city: $city, amount: $amount }
+  ) {
+    _id
+    cost
+    handling
+    rate
+    name
+    __typename
+  }
+}

@@ -1,0 +1,13 @@
+query
+  getWalletsByUserId($userId: ID!) {
+    getWalletsByUserId(userId: $userId) {
+    _id
+    amount
+    userId
+    transactions
+    paymentProcessor
+    createdAt
+    updatedAt
+  }
+  
+}

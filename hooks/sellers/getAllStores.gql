@@ -1,0 +1,32 @@
+query getAllStore(
+  $first: ConnectionLimitInt
+  $offset: Int
+  $searchQuery: String
+) {
+  getAllStore(first: $first, offset: $offset, searchQuery: $searchQuery) {
+    totalCount
+    nodes{
+      _id
+      name
+      isSeller
+       roles
+      storeName
+      phoneNumber
+      storeLogo
+      noOfProduct{
+        count
+      }
+      profile{
+        picture
+        username
+        firstName
+        lastName
+        phone
+        __typename
+      }
+      __typename
+    
+    }
+    __typename
+  }
+}

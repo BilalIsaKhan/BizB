@@ -1,0 +1,17 @@
+mutation 
+  makeTransaction(
+    $userId: ID!
+    $amount: Int!
+    $transactions: TransactionType!)
+  { 
+   makeTransaction(userId: $userId, amount: $amount, transactions: $transactions)
+   {
+    _id
+    amount
+    userId
+    transactions
+    paymentProcessor
+    createdAt
+    updatedAt
+  }
+}

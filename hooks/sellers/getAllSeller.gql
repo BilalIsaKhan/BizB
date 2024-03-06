@@ -1,0 +1,52 @@
+query getAllNewSeller(
+ $PageNumber: Int
+$itemPerPage: Int
+$tagsId: String
+) {
+  getAllNewSeller( PageNumber: $PageNumber,itemPerPage: $itemPerPage, tagsId: $tagsId) {
+    AccountDetail {
+      _id
+      name
+      userId
+      emailRecords {
+        address
+      }
+      firstName
+      language
+      lastName
+      metafields {
+        namespace
+        __typename
+      }
+      picture
+      updatedAt
+      userId
+      username
+      isSeller
+      storeInfo {
+        storeName
+        image
+        __typename
+      }
+      products {
+        _id
+        createdAt
+        pageTitle
+        tags {
+          nodes {
+            _id
+            name
+          }
+        }
+        title
+        vendor
+        originCountry
+        tagIds
+        __typename
+      }
+      __typename
+    }
+    totalPage
+    __typename
+  }
+}

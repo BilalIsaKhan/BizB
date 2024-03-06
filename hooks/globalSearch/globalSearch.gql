@@ -1,0 +1,68 @@
+query globalSearch(
+  $searchType: GlobalStoreTypeEnum
+  $searchQuery: String!
+  $skip: Int!
+  $limit: Int
+) {
+  globalSearch(
+    searchType: $searchType
+    searchQuery: $searchQuery
+    skip: $skip
+    limit: $limit
+  ) {
+     storeData{
+      _id
+      name
+      storeName
+      image
+    }
+    catalog {
+        _id
+        slug
+      title
+      description
+      media {
+        URLs {
+          large
+          medium
+          original
+          small
+          thumbnail
+        }
+      }
+      variant {
+        _id
+        variantId
+        optionTitle
+          uploadedBy{
+          userId
+          storeName
+          name
+        }
+        media {
+          URLs {
+            large
+            medium
+            original
+            small
+            thumbnail
+          }
+        }
+        pricing {
+            displayPrice
+          compareAtPrice {
+            amount
+            displayAmount
+          }
+          price
+        }
+      }
+    }
+    storeData {
+      name
+      storeName
+      image
+      _id
+    }
+  }
+}

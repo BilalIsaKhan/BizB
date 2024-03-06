@@ -1,0 +1,6 @@
+mutation sellerRegistration($input: sellerRegistrationInput) {
+  sellerRegistration(input: $input) {
+    success
+    message
+  }
+}

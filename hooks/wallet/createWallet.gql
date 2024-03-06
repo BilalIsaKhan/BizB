@@ -1,0 +1,14 @@
+mutation createWallet(
+    $userId: ID!
+    $amount:Int!
+    $paymentProcessor:String!
+  ){
+    createWallet(userId: $userId, amount:$amount, paymentProcessor:$paymentProcessor){
+    _id
+    amount
+    userId
+    transactions
+    paymentProcessor
+    }
+  
+}

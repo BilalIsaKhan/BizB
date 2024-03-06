@@ -1,0 +1,5 @@
+query primaryShop {
+  primaryShop {
+    _id
+  }
+}

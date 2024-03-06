@@ -1,0 +1,38 @@
+mutation applyDiscountCodeToCart($input: ApplyDiscountCodeToCartInput!) {
+  applyDiscountCodeToCart(input: $input) {
+    cart {
+      _id
+      checkout {
+        summary {
+          discountTotal {
+            amount
+            displayAmount
+            currency {
+              _id
+            }
+          }
+          effectiveTaxRate {
+            amount
+            displayPercent
+            percent
+          }
+          fulfillmentTotal {
+            amount
+            currency {
+              _id
+            }
+            displayAmount
+          }
+          total {
+            amount
+            currency {
+              code
+              decimal
+            }
+            displayAmount
+          }
+        }
+      }
+    }
+  }
+}
